@@ -27,10 +27,10 @@ const cockpit = (props) => {
         btnClass = classes.Red;
     }
 
-    if (props.persons.length <= 2) {
+    if (props.personsLength <= 2) {
       assignedClasses.push(classes.red); // classes = ['red']
     }
-    if (props.persons.length <= 1) {
+    if (props.personsLength <= 1) {
       assignedClasses.push(classes.bold); // classes = ['red', 'bold']
     }
 
@@ -38,12 +38,11 @@ const cockpit = (props) => {
         <div className={classes.Cockpit}>
             <h1>{props.title}</h1>
             <p className={assignedClasses.join(' ')}>This is really working!</p>
-            <button 
-                className={btnClass}
-                onClick={props.clicked}>Toggle Persons
+            <button className={btnClass} onClick={props.clicked}>
+                Toggle Persons
             </button>
         </div>
     );
 };
 
-export default cockpit;
+export default React.memo(cockpit);
